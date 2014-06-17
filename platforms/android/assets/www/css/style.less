@@ -1,0 +1,826 @@
+@import "reset.less";
+@import "helper.less";
+
+/* GLOBAL
+-------------------------------------------------------------------------- */
+body {
+    position: relative;
+    overflow: hidden;
+    background: url(../img/bg-guitar.png) center 50% no-repeat @bgcolor;
+    font-family: 'Open Sans', arial, sans-serif;
+    color: #FFF;
+    line-height: 1.2em;
+}
+
+// Scroll Structure
+.container {
+    overflow: visible;
+    display: block;
+    width: 100%;
+    height: 0;
+    opacity: 0;
+    -webkit-transition: opacity 0.6s ease-out;
+}
+.visible {
+  opacity: 1;
+  height: 86%;
+  overflow: visible;
+}
+.visible_with_ads {
+    height: 76% !important;
+}
+#ads_banner{
+    width: 100%;
+    height: 10%;
+    overflow: visible;
+    margin: 0 auto;
+}
+#ads_banner_img{
+    width: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.carousel {
+    height: 93%;
+}
+.page {
+    height: 100%;
+}
+.scroll_wrapper {
+    max-height: 100%;
+}
+/*----------------------*/
+
+
+a {
+    color: #FFF;
+    text-decoration: none;
+    //-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    //-webkit-focus-ring-color: rgba(0, 0, 0, 0);
+}
+.p_small {
+    font-size: 0.875em; //14px
+    line-height: 1.1em;
+}
+
+.general_heading {
+    margin-bottom: 10px;
+    font-weight: normal;
+    overflow: visible;
+}
+
+// Forms
+.input_wrap {
+    position: relative;
+}
+.input_field,
+.textarea {
+    width: 100%;
+    .borderbox;
+    padding: 5px 10px;
+    border: 3px solid @maincolor;
+    margin-bottom: 4px;
+    background-color: @bgcolor;
+    font-size: 16px;
+    color: #FFF;
+}
+.input_field {
+    height: 60px;
+}
+.textarea {
+    height: 90px;
+}
+.input_button {
+    width: 70px;
+    height: 70px;
+    .borderbox;
+    padding-top: 20px;
+    border: none;
+    .border-radius(4px);
+    margin: 10px auto 0;
+    background-color: @maincolor;
+    text-align: center;
+}
+
+
+// Lists
+.list {
+    .row {
+        display: block;
+        border-bottom: 1px solid @grey;
+    }
+    .column {
+        min-height: 55px;
+        padding: 15px 10px;
+    }
+    .fixed {
+        width: 80px;
+    }
+    .band_name {
+        text-transform: uppercase;
+        font-weight: normal;
+    }
+}
+.list_header {
+    height: 22px;
+    padding: 0 10px;
+    background-color: @maincolor;
+    opacity: 0.8;
+    font-size: 0.875em;
+    text-transform: uppercase; 
+    color: #FFF;
+    line-height: 22px;
+}
+
+
+//Icons
+.icon_arrow {
+    display: inline-block;
+    width: 8px;
+    height: 12px;
+    margin-right: 5px;
+    background: @sprite -108px 0 transparent;
+}
+
+
+// Shadows
+.shadow {
+    .box-shadow(0 6px 20px 2px #222);
+}
+
+/* SPLASH
+-------------------------------------------------------------------------- */
+#loaderSplash{
+    width: 100%;
+    height: 0;
+    display: block;
+    -webkit-transition: opacity 1s ease-out;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.visible_splash {
+    opacity: 1;
+    height: 100%;
+ }
+
+/* HEADER
+-------------------------------------------------------------------------- */
+#header {
+    position: relative;
+    z-index: 8;
+    height: 14%;
+    border-bottom: 1px solid @maincolor;
+    background-color: @bgcolor;
+    .heading0 {
+        margin-left: 82px;
+        font-size: 1.9em;
+        font-weight: normal;
+        overflow: visible;
+    }
+    .heading1,
+    .heading2 {
+        padding-left: 20px;
+        font-weight: normal;
+    }
+    .heading1 {
+        font-size: 1.125em; //18px
+        font-weight: normal;
+        &:after {
+            content: " ";
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            display: block;
+            width: 11px;
+            height: 17px;
+            margin-top: -10px;
+            background: @sprite -36px 0;
+        }
+    }
+    .heading2 {
+        margin-top: 3px;
+        font-size: 0.8125em;
+        color: @maincolor;
+    }
+}
+#header_link {
+    padding: 9px 5px;
+}
+#logo {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    margin-top: -25px;
+}
+.icon_menu {
+    display: inline-block;
+    width: 28px;
+    height: 22px;
+    background: @sprite 0 0;
+}
+
+
+/* MAIN MENU
+-------------------------------------------------------------------------- */
+.menu {
+    z-index: 99;
+    position: absolute;
+    top: 13%;
+    right: -80%;
+    bottom: 0;
+    width: 80%;
+    height: 87%;
+    border-top: 5px solid #b43a34;
+    background-color: #eeeeee;
+    -webkit-transition: right 0.5s ease-out;
+    .list {
+        border-bottom: 3px solid @maincolor;
+    }
+    .link {
+        display: block;
+        padding: 15px 20px;
+        border-bottom: 1px solid @lightgrey;
+        color: @bgcolor;
+    }
+}
+.active_menu {
+    right: 0;
+    .box-shadow(-6px 0 20px 5px #222);
+}
+
+/* LOADING
+-----------------------------------------*/
+#movingBallG{
+position:relative;
+width:264px;
+height:21px;
+margin: 40px auto;
+text-align: center;
+}
+
+.movingBallLineG{
+position:absolute;
+left:0px;
+top:8px;
+height:4px;
+width:264px;
+background-color:#B43B34;
+}
+
+.movingBallG{
+background-color:#ADADAD;
+position:absolute;
+top:0;
+left:0;
+width:21px;
+height:21px;
+-webkit-border-radius:11px;
+-webkit-animation-name:bounce_movingBallG;
+-webkit-animation-duration:2.5s;
+-webkit-animation-iteration-count:infinite;
+-webkit-animation-direction:linear;
+}
+
+@-webkit-keyframes bounce_movingBallG{
+0%{
+left:0px;
+}
+
+50%{
+left:243px;
+}
+
+100%{
+left:0px;
+}
+
+}
+
+/* FEEDBACK
+-------------------------------------------------------------------------- */
+.icon_send {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: @sprite -36px -72px;
+}
+
+#feedback .input_field {
+    height: 45px;
+}
+
+
+/* SWIPE BAR
+-------------------------------------------------------------------------- */
+.swipe_bar {
+    position: relative;
+    overflow: visible;
+    z-index: 10;
+    height: 7%;
+    background-color: @grey;
+    .shadow;
+    white-space: nowrap;
+}
+.swipe_bar_list {
+    position: absolute;
+    bottom: 0;
+    overflow: visible;
+    display: block;
+    //min-width: 320px;
+    padding: 0 10px;
+    text-align: center;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    &.static {
+        position: static;
+        li {
+            padding: 0 25px;
+        }
+    }
+    &.first,
+    &.last {
+        margin-left: 0 !important;
+    }
+    &.first {
+        right: auto;
+        left: 0;
+    }
+    &.middle {
+        left: 50%;
+    }
+    &.last {
+        right: 0;
+        left: auto;
+    }
+    li {
+        overflow: visible;
+        display: inline-block;
+        min-width: 100px;
+        text-align: center;
+    }
+    a {
+        overflow: visible;
+        padding-bottom: 4px;
+        margin: 0 10px;
+        text-decoration: none;
+        color: #CCC;
+        line-height: 30px;
+        font-size: 17px;
+    }
+    .current {
+        position: relative;
+        border-bottom: 2px solid #FFF;
+        color: white;
+        &:after {
+            content: " ";
+            position: absolute;
+            bottom: -16px;
+            left: 50%;
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            margin-left: -6px;
+            background: @sprite -72px 0 no-repeat;
+        }
+    }
+}
+
+
+/* NAVS
+-------------------------------------------------------------------------- */
+.nav_top {
+    position: relative;
+    z-index: 9;
+    white-space: nowrap;
+    .column {
+        background-color: #2e2e2e;
+        padding: 0;
+        &:last-child .item {
+            border: none !important;
+        }
+    }
+    .item {
+        display: inline-block;
+        .borderbox;
+        padding: 0 13px;
+        border-right: 1px solid #555;
+        font-size: 18px;
+        text-align: center;
+        line-height: 50px;
+    }
+    .current {
+        border-bottom: 5px solid @maincolor;
+        font-weight: bold;
+    }
+}
+
+.nav_bottom {
+    z-index: 9;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 11%;
+    border-top: 1px solid @maincolor;
+    /*.box-shadow(0 -6px 25px 6px rgba(0,0,0,0.8));*/
+    .column {        
+        .one-quarter;
+        height: 100%;
+        padding: 0;
+        background-color: #2e2e2e;
+    }
+    .item {
+        display: block;
+        height: 100%;
+        padding-top: 15px;
+        border-right: 1px solid #555;
+        border-bottom: 5px solid @maincolor;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+    }
+}
+
+
+
+/* HOME
+-------------------------------------------------------------------------- */
+.festival_list {
+    padding: 0 5px;
+    margin-top: 2%;
+    //line-height: 0; // retirar espaço em baixo
+    .item {
+        position: relative;
+        display: inline-block;
+        width: 50%;
+        .borderbox;
+        padding: 6px;
+        //line-height: 0; // retirar espaço em baixo
+       /* &::before {
+            content: ' ';
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 100%;
+            .box-shadow(inset 0 0 12px 2px @lightgrey);
+        }*/
+    }
+    .festival_logo {
+        width: 100%;
+        height: 36%;
+        display: block;
+        .borderbox;
+        border: 8px solid @lightgrey;
+        .border-radius(4px);
+    }
+    .festivals_line_break{
+        text-align: center;
+        font-size: 1.1em;        
+        margin-top: 10px;        
+        border-bottom: 1px solid @maincolor;
+    }
+
+
+    
+}
+
+#installer {
+
+
+    }
+    .loading_msg {
+
+        padding-top: 30%;
+        font-size: 18px;
+        text-align: center;
+    }
+
+/* SEARCH
+-------------------------------------------------------------------------- */
+#search_input_wrap {
+    margin-top: 50px;
+    padding: 0 10px;
+}
+#search_button {
+    margin-top: 40px;
+}
+.icon_search {
+    display: inline-block;
+    width: 31px;
+    height: 30px;
+    background: @sprite 0 -36px;
+}
+
+
+
+/* BEFORE FESTIVAL
+-------------------------------------------------------------------------- */
+#before_festival {
+    background: @bgcolor; // esconder imagem de fundo geral
+}
+.countdown_bg {
+    position: absolute;
+    width: 100%;
+}
+#festival_countdown {
+    position: relative;
+    float: right;
+    margin: 25px 15px 0 0;
+    display: inline-block;
+    font-size: 17px;
+    .last-line {
+        display: block;
+        text-align: right;
+    }
+}
+#festival_countdown_days {
+    display: block;
+    &.minus {
+        font-size: 75px;
+        line-height: 60px;
+    }
+    &.one {
+        font-size: 75px;
+        line-height: 60px;
+    }
+    &.two {
+        font-size: 65px;
+        line-height: 50px;
+    }
+    &.three {
+        font-size: 50px;
+        line-height: 40px;
+    }
+}
+.before_festival_details {
+    position: absolute;
+    bottom: 11%;
+    z-index: 2;
+    width: 100%;
+    overflow: visible;
+    padding: 40px 10px 20px;
+    background-color: rgba(46,46,46,0.7);
+    font-size: 17px;
+    line-height: 24px;
+    /*span {
+        text-shadow: 0 0 5px @bgcolor;
+    }*/
+}
+.festival_poster {
+    position: absolute;
+    top: -90%;
+    left: 20px;
+    width: 40%;
+    border: 5px solid @lightgrey;
+    line-height: 0;
+    img {
+        max-width: 100%;
+        line-height: 0;
+    }
+}
+.before_festival_list {
+    font-size: 16px;
+    line-height: 20px;
+    li {
+        margin-bottom: 6px;
+    }
+}
+
+#before_festival_page {
+    position: relative;
+    overflow: hidden;
+    .nav_bottom {
+        height: 50px;
+        .item {
+            padding: 0;
+            line-height: 50px;
+        }
+    }
+}
+
+
+/* DURING FESTIVAL
+-------------------------------------------------------------------------- */
+#during_festival_scroll_wrapper {
+    margin-top: 5px;
+    height: 86%;
+}
+
+#during_festival_page {
+    position: relative;
+    overflow: hidden;
+    .nav_bottom {
+        height: 50px;
+        .item {
+            padding: 0;
+            line-height: 50px;
+        }
+    }
+}
+.during_festival_list{
+    width: 71%;
+    height: 24%;
+    display: inline-block;
+    margin-left: 3px;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+.festival_during_poster {
+    height: 24%;
+    width: 24%;
+    margin: 1%;
+    border: 2px solid @lightgrey;
+    display: inline-block;
+    line-height: 0;
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        height: auto;
+        
+    }
+}
+.icon_swipe_left,
+.icon_swipe_right {
+    position: absolute;
+    top: 50%;
+    display: inline-block;
+    width: 11px;
+    height: 17px;
+    margin-top: -8px;
+    background: @sprite no-repeat;
+}
+.icon_swipe_left {
+    left: 10px;
+    background-position: -72px -36px;
+}
+.icon_swipe_right {
+    right: 10px;
+    background-position: -122px -36px;
+}
+
+.during_festival_header {
+    padding: 6px 0 6px 22px;
+    background-color: @maincolor;
+    opacity: 0.8;
+}
+.during_festival_column {
+    padding-right: 35px !important;
+    padding-left: 35px !important;
+}
+
+.icon_current_show {
+    position: relative;
+    display: inline-block;
+    @diameter: 10px;
+    width: @diameter;
+    height: @diameter;
+    .border-radius();
+    margin-right: 5px;
+    background: @maincolor;
+    &:after {
+        position: absolute;
+        display: inline-block;
+        top: 2px;
+        left: 2px;
+        @diameter: 3px;
+        width: @diameter;
+        height: @diameter;
+        .border-radius();
+        background: black;
+    }
+}
+.current_show {
+    color: @maincolor;
+}
+
+
+/* SHOWS
+-------------------------------------------------------------------------- */
+.show_date {
+    display: block;
+}
+
+
+/* LINEUP
+-------------------------------------------------------------------------- */
+.lineup_frame {
+    height:81%;
+}
+
+.lineup_carousel {
+    height:100%;
+}
+
+.lineup_scroll_wrapper {
+    height:100%;
+}
+
+.lineup_day_frame{
+    display:block;
+    width:100%;
+    -webkit-transition: opacity 1s ease-out;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.active{
+    opacity: 1;
+    height: 100%;    
+}
+
+
+
+/* WEATHER
+-------------------------------------------------------------------------- */
+#weather_current {
+    padding: 6px 0 20px;
+    .bdr_b;
+}
+#weather_img_current {
+    display: inline-block;
+}
+#weather_temperature_current {
+    position: relative;
+    overflow: visible;
+    bottom: 30px;
+    display: inline-block;
+    font-size: 2.25em;
+    margin-left: 12px;
+}
+#weather_description_current {
+    font-size: 1.375em;
+    text-align: center;
+    overflow: visible;
+    br {
+        display: none;
+    }
+    #weather_city{
+        width: 100%;
+        margin-top:15px;
+        font-size: 0.65em;
+        overflow: visible;
+    }
+    
+}
+
+#weather_list {
+    .row {
+        white-space: nowrap;
+    }
+    .column {
+        float: left;
+    }
+}
+
+.weather_icon {
+    width: 64px;
+    margin-top: 5px;
+}
+
+.weather_temperature {
+    float: right !important;
+    font-size: 1.25em;
+    span {
+        display: block;
+    }
+    .min {
+        margin-top: 5px;
+        color: #AAA;
+        text-align: right;
+    }
+}
+
+
+/* SHOW VIDEOS
+-------------------------------------------------------------------------- */
+#band_videos_page {
+    .column {
+        height: 80px;
+        &.fixed {
+            width: 100px;
+            position: relative;
+        }
+    }
+}
+.video_name {
+    margin: 5px 5px 6px;
+}
+.video_wrap {
+    position: relative;
+    display: block;
+}
+.video_img {
+    margin-bottom: 20px;
+}
+.icon_videoplay {
+    z-index: 9;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: @sprite 0 -72px;
+}

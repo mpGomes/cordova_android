@@ -1,0 +1,962 @@
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+img,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+tbody,
+tr,
+th,
+td,
+article,
+aside,
+footer,
+header,
+nav,
+section {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+* {
+    overflow: hidden;
+}
+
+/* ===============================================================
+Basic Swiper Styles
+================================================================*/
+.swiper-container {
+    margin:0 auto;
+    position:relative;
+    overflow:hidden;
+    -webkit-backface-visibility:hidden;
+    backface-visibility:hidden;
+    /* Fix of Webkit flickering */
+    z-index:1;
+}
+.swiper-wrapper {
+    position:relative;
+    width:100%;
+    -webkit-transition-property:-webkit-transform, left, top;
+    -webkit-transition-duration:0s;
+    -webkit-transform:translate3d(0px,0,0);
+    -webkit-transition-timing-function:ease;
+
+    transition-property:transform, left, top;
+    transition-duration:0s;
+    transform:translate3d(0px,0,0);
+    transition-timing-function:ease;
+}
+.swiper-free-mode > .swiper-wrapper {
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+    margin: 0 auto;
+}
+.swiper-slide {
+    float: left;
+}
+
+/* Grid Table
+------------------------------------------------------------------------ */
+
+.row {
+    position: relative;
+    display: table;
+    width: 100%;
+}
+.column {
+    display: table-cell;
+    box-sizing: border-box;
+    padding: 10px;
+    vertical-align: middle;
+}
+.column.fixed {
+    width: 70px;
+    text-align: center;
+}
+.one-quarter {
+    width: 25%;
+}
+.one-third {
+    width: 33.33%;
+}
+.hidden {
+    display: none;
+}
+.padded {
+    padding: 10px;
+}
+.centered {
+    text-align: center;
+}
+.valign_top {
+    vertical-align: top !important;
+}
+.bdr_r {
+    border-right: 1px solid #373737;
+}
+.bdr_b {
+    border-bottom: 1px solid #373737;
+}
+.bdr_l {
+    border-left: 1px solid #373737;
+}
+.no_border {
+    border: none !important;
+}
+.no_bdr_r {
+    border-right: none !important;
+}
+.no_padding {
+    padding: 0 !important;
+}
+/* GLOBAL
+-------------------------------------------------------------------------- */
+
+body {
+    position: relative;
+    /*overflow: hidden;*/
+    background: url(../img/bg-guitar.png) center 50% no-repeat #232323;
+    font-family: 'Open Sans', arial, sans-serif;
+    color: white;
+    line-height: 1.2em;
+}
+.container {
+    width: 100%;
+    height: 0;
+    opacity: 0;
+    -webkit-transition: opacity 0.6s ease-out;
+}
+.visible {
+    opacity: 1;
+    height: 86%;
+    overflow: visible;
+}
+.visible_with_ads {
+    height: 76% !important;
+}
+#ads_banner {
+    width: 100%;
+    height: 10%;
+    overflow: visible;
+    margin: 0 auto;
+}
+#ads_banner_img {
+    width: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+.carousel {
+    height: 93%;
+}
+.page {
+    height: 100%;
+}
+.scroll_wrapper {
+    max-height: 100%;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+.scroll_wrapper_navbar {
+    max-height: 93% !important;
+}
+.horizontal_scroll_wrapper {
+    max-width: 100%;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+/*----------------------*/
+
+a {
+    color: white;
+    text-decoration: none;
+}
+.general_heading {
+    margin-bottom: 10px;
+    font-weight: normal;
+    overflow: visible;
+}
+.input_wrap {
+    position: relative;
+}
+.input_field,
+.textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    border: 3px solid #b43a34;
+    margin-bottom: 4px;
+    background-color: #232323;
+    font-size: 16px;
+    color: white;
+}
+.input_field {
+    height: 60px;
+}
+.textarea {
+    height: 90px;
+}
+.input_button {
+    width: 70px;
+    height: 70px;
+    box-sizing: border-box;
+    padding-top: 20px;
+    border: none;
+    border-radius: 4px;
+    margin: 10px auto 0;
+    background-color: #b43a34;
+    text-align: center;
+}
+.list .row {
+    display: block;
+    border-bottom: 1px solid #373737;
+}
+.list .column {
+    min-height: 55px;
+    padding: 15px 10px;
+}
+.list .fixed {
+    width: 80px;
+}
+.list .band_name {
+    text-transform: uppercase;
+    font-weight: normal;
+}
+.list_header {
+    height: 22px;
+    padding: 0 10px;
+    background-color: #b43a34;
+    opacity: 0.8;
+    font-size: 0.875em;
+    text-transform: uppercase;
+    color: white;
+    line-height: 22px;
+}
+.icon_arrow {
+    display: inline-block;
+    width: 8px;
+    height: 12px;
+    margin-right: 5px;
+    background: url(../img/sprite.png) -108px 0 transparent;
+}
+.shadow {
+    box-shadow: 0 6px 20px 2px #222222;
+}
+/* SPLASH
+-------------------------------------------------------------------------- */
+
+#loaderSplash {
+    width: 100%;
+    height: 0;
+    display: block;
+    -webkit-transition: opacity 1s ease-out;
+    opacity: 0;
+    overflow: hidden;
+}
+.visible_splash {
+    opacity: 1;
+    height: 100%;
+}
+/* HEADER
+-------------------------------------------------------------------------- */
+
+#header {
+    position: relative;
+    z-index: 8;
+    height: 14%;
+    border-bottom: 1px solid #b43a34;
+    background-color: #232323;
+}
+#header .heading0 {
+    margin-left: 82px;
+    font-size: 1.9em;
+    font-weight: normal;
+    overflow: visible;
+}
+#header .heading1,
+#header .heading2 {
+    padding-left: 20px;
+    font-weight: normal;
+}
+#header .heading1 {
+    font-size: 1.125em;
+    font-weight: normal;
+}
+#header .heading1:after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    display: block;
+    width: 11px;
+    height: 17px;
+    margin-top: -10px;
+    background: url(../img/sprite.png) -36px 0;
+}
+#header .heading2 {
+    margin-top: 3px;
+    font-size: 0.8125em;
+    color: #b43a34;
+}
+#header_link {
+    padding: 9px 5px;
+}
+#logo {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    margin-top: -25px;
+}
+.icon_menu {
+    display: inline-block;
+    width: 28px;
+    height: 22px;
+    background: url(../img/sprite.png) 0 0;
+}
+/* MAIN MENU
+-------------------------------------------------------------------------- */
+
+.menu {
+    z-index: 99;
+    position: absolute;
+    top: 14%;
+    right: -80%;
+    bottom: 0;
+    width: 80%;
+    height: 86%;
+    border-top: 5px solid #b43a34;
+    background-color: #eeeeee;
+    -webkit-transition: right 0.5s ease-out;
+}
+.menu .list {
+    border-bottom: 3px solid #b43a34;
+}
+.menu .link {
+    display: block;
+    padding: 15px 20px;
+    border-bottom: 1px solid #666666;
+    color: #232323;
+}
+.active_menu {
+    right: 0;
+    box-shadow: -6px 0 20px 5px #222222;
+}
+/* LOADING
+-----------------------------------------*/
+
+#movingBallG {
+    position: relative;
+    width: 264px;
+    height: 21px;
+    margin: 40px auto;
+    text-align: center;
+}
+.movingBallLineG {
+    position: absolute;
+    left: 0;
+    top: 8px;
+    height: 4px;
+    width: 264px;
+    background-color: #b43b34;
+}
+.movingBallG {
+    background-color: #adadad;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 21px;
+    height: 21px;
+    border-radius: 11px;
+    -webkit-animation-name: bounce_movingBallG;
+    -webkit-animation-duration: 2.5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: linear;
+}
+@-webkit-keyframes bounce_movingBallG {
+    0% {
+        left: 0;
+    }
+    50% {
+        left: 243px;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+/* SWIPE BAR
+-------------------------------------------------------------------------- */
+
+.swipe_bar {
+    position: relative;
+    overflow: visible;
+    z-index: 10;
+    height: 7%;
+    background-color: #373737;
+    box-shadow: 0 6px 20px 2px #222222;
+    white-space: nowrap;
+}
+.swipe_bar_list {
+    position: absolute;
+    bottom: 0;
+    overflow: visible;
+    display: block;
+    padding: 0 10px;
+    text-align: center;
+    transition: all 0.3s;
+}
+.swipe_bar_list.static {
+    position: static;
+}
+.swipe_bar_list.static li {
+    padding: 0 25px;
+}
+.swipe_bar_list.first,
+.swipe_bar_list.last {
+    margin-left: 0 !important;
+}
+.swipe_bar_list.first {
+    right: auto;
+    left: 0;
+}
+.swipe_bar_list.middle {
+    left: 50%;
+}
+.swipe_bar_list.last {
+    right: 0;
+    left: auto;
+}
+.swipe_bar_list li {
+    overflow: visible;
+    display: inline-block;
+    min-width: 100px;
+    text-align: center;
+}
+.swipe_bar_list a {
+    overflow: visible;
+    padding-bottom: 4px;
+    margin: 0 10px;
+    text-decoration: none;
+    color: #cccccc;
+    line-height: 30px;
+    font-size: 17px;
+}
+.swipe_bar_list .current {
+    position: relative;
+    border-bottom: 2px solid white;
+    color: white;
+}
+.swipe_bar_list .current:after {
+    content: " ";
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-left: -6px;
+    background: url(../img/sprite.png) -72px 0 no-repeat;
+}
+/* NAVS
+-------------------------------------------------------------------------- */
+
+.nav_top {
+    position: relative;
+    z-index: 9;
+    white-space: nowrap;
+}
+.nav_top .column {
+    background-color: #2e2e2e;
+    padding: 0;
+}
+.nav_top .column:last-child .item {
+    border: none !important;
+}
+.nav_top .item {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 0 13px;
+    border-right: 1px solid #555555;
+    font-size: 18px;
+    text-align: center;
+    line-height: 50px;
+}
+.nav_top .current {
+    border-bottom: 5px solid #b43a34;
+    font-weight: bold;
+}
+.nav_bottom {
+    z-index: 9;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 11%;
+    border-top: 1px solid #b43a34;
+    /*.box-shadow(0 -6px 25px 6px rgba(0,0,0,0.8));*/
+
+}
+.nav_bottom .column {
+    width: 25%;
+    height: 100%;
+    padding: 0;
+    background-color: #2e2e2e;
+}
+.nav_bottom .item {
+    display: block;
+    height: 100%;
+    padding-top: 15px;
+    border-right: 1px solid #555555;
+    border-bottom: 5px solid #b43a34;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+/* HOME
+-------------------------------------------------------------------------- */
+
+.festival_list {
+    padding: 0 5px;
+    margin-top: 2%;
+}
+.festival_list .item {
+    position: relative;
+    display: inline-block;
+    width: 50%;
+    height: 150px;
+    box-sizing: border-box;
+    padding: 6px;
+    margin: 0 auto;
+
+    -webkit-animation: animationFrames linear 1s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-transform-origin: 50% 0%;
+}
+
+@-webkit-keyframes animationFrames {
+    0% {
+        left:0;
+        top:0;
+        opacity:1;
+        -webkit-transform:  rotate(0deg) scaleX(1) scaleY(1) ;
+    }
+    20% {
+        -webkit-transform:  rotate(15deg) ;
+    }
+    40% {
+        -webkit-transform:  rotate(-10deg) ;
+    }
+    60% {
+        -webkit-transform:  rotate(5deg) ;
+    }
+    80% {
+        -webkit-transform:  rotate(-5deg) ;
+    }
+    100% {
+        left:0;
+        top:0;
+        opacity:1;
+        -webkit-transform:  rotate(0deg) scaleX(1) scaleY(1) ;
+    }
+}
+
+.festival_logo_img{
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    /*box-shadow: 0 6px 20px 2px #222222;*/
+}
+
+#festivals_line_break {
+    text-align: center;
+    font-size: 1.1em;
+    margin-top: 10px;
+    border-bottom: 1px solid #b43a34;
+}
+#festivals_country_title{
+    width: 100%;
+    min-height: 30px;
+    margin: 8px auto 0 auto;
+    text-align: center;
+    font-size: 27px;
+}
+
+#festivals_country_flag{
+    width: 55px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+#festivals_buttons{
+    padding-top: 10px;
+}
+.loading_msg {
+    padding-top: 30%;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* FEEDBACK
+-------------------------------------------------------------------------- */
+.icon_send {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: url(../img/sprite.png) -36px -72px;
+}
+#feedback .input_field {
+    height: 45px;
+}
+
+/* COUNTRIES
+-------------------------------------------------------------------------- */
+.country_select {
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+}
+
+/* LANGUAGES
+-------------------------------------------------------------------------- */
+#languages_page_list{
+    padding-top: 30px;
+}
+.language_select {
+    width: 100%;
+    font-size: 26px;
+    height: 40px;
+}
+.language_select img{
+    float: right;
+    padding-right: 10px;
+    vertical-align: middle;
+}
+
+/* SEARCH
+-------------------------------------------------------------------------- */
+
+#search_input_wrap {
+    margin-top: 50px;
+    padding: 0 10px;
+}
+#search_button {
+    margin-top: 40px;
+}
+.icon_search {
+    display: inline-block;
+    width: 31px;
+    height: 30px;
+    background: url(../img/sprite.png) 0 -36px;
+}
+/* BEFORE FESTIVAL
+-------------------------------------------------------------------------- */
+
+#before_festival {
+    background: #232323;
+}
+.countdown_bg {
+    position: absolute;
+    width: 100%;
+}
+#festival_countdown {
+    position: relative;
+    float: right;
+    margin: 25px 15px 0 0;
+    display: inline-block;
+    font-size: 17px;
+}
+#festival_countdown .last-line {
+    display: block;
+    text-align: right;
+}
+#festival_countdown_days {
+    display: block;
+    padding-left: 5px;
+    text-align: center;
+}
+#festival_countdown_days.minus {
+    font-size: 75px;
+    line-height: 60px;
+}
+#festival_countdown_days.one {
+    font-size: 70px;
+    line-height: 60px;
+}
+#festival_countdown_days.two {
+    font-size: 65px;
+    line-height: 50px;
+}
+#festival_countdown_days.three {
+    font-size: 50px;
+    line-height: 40px;
+}
+.before_festival_details {
+    position: absolute;
+    bottom: 11%;
+    z-index: 2;
+    width: 100%;
+    overflow: visible;
+    padding: 40px 10px 20px;
+    background-color: rgba(46, 46, 46, 0.7);
+    font-size: 17px;
+    line-height: 24px;
+}
+.festival_poster {
+    position: absolute;
+    top: -90%;
+    left: 20px;
+    width: 40%;
+    height: 100%;
+    border: 5px solid #666666;
+    line-height: 0;
+}
+.festival_poster img {
+    position: absolute;
+    max-width: 100%;
+    min-height: 100%;
+    line-height: 0;
+}
+.before_festival_list {
+    font-size: 16px;
+    line-height: 20px;
+}
+.before_festival_list li {
+    margin-bottom: 6px;
+}
+#before_festival_page {
+    position: relative;
+    overflow: hidden;
+}
+#before_festival_page .nav_bottom {
+    height: 50px;
+}
+#before_festival_page .nav_bottom .item {
+    padding: 0;
+    line-height: 50px;
+}
+/* DURING FESTIVAL
+-------------------------------------------------------------------------- */
+
+#during_festival_scroll_wrapper {
+    margin-top: 5px;
+    height: 86%;
+}
+#during_festival_page {
+    position: relative;
+    overflow: hidden;
+}
+#during_festival_page .nav_bottom {
+    height: 50px;
+}
+#during_festival_page .nav_bottom .item {
+    padding: 0;
+    line-height: 50px;
+}
+.during_festival_list {
+    width: 70%;
+    height: 24%;
+    display: inline-block;
+    margin: 5px 0 10px 3px;
+    padding-top: 10px;
+    font-size: 1em;
+}
+.festival_during_poster {
+    height: 22%;
+    width: 22%;
+    margin: 2% 1% 1% 1%;
+    border: 2px solid #666666;
+    display: inline-block;
+    line-height: 0;
+    vertical-align: top;
+}
+.festival_during_poster img {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+}
+#festival_during_shows{
+    margin-top: 10px;
+}
+#festival_during_shows .swiper-wrapper{
+    height: 68px;
+}
+
+.icon_swipe_left,
+.icon_swipe_right {
+    position: absolute;
+    top: 50%;
+    display: inline-block;
+    width: 11px;
+    height: 17px;
+    margin-top: -8px;
+    background: url(../img/sprite.png) no-repeat;
+}
+.icon_swipe_left {
+    left: 10px;
+    background-position: -72px -36px;
+}
+.icon_swipe_right {
+    right: 10px;
+    background-position: -122px -36px;
+}
+.during_festival_header {
+    padding: 6px 0 6px 22px;
+    background-color: #b43a34;
+    opacity: 0.8;
+}
+.during_festival_column {
+    padding-right: 35px !important;
+    padding-left: 35px !important;
+}
+.icon_current_show {
+    position: relative;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 20px;
+    margin-right: 5px;
+    background: #b43a34;
+}
+.icon_current_show:after {
+    position: absolute;
+    display: inline-block;
+    top: 2px;
+    left: 2px;
+    width: 3px;
+    height: 3px;
+    border-radius: 6px;
+    background: black;
+}
+.current_show {
+    color: #b43a34;
+}
+
+/* SHOWS
+-------------------------------------------------------------------------- */
+.show_date {
+    display: block;
+}
+
+/* LINEUP
+-------------------------------------------------------------------------- */
+#lineup_shows {
+    height: 81%;
+}
+.lineup_carousel {
+    height: 100%;
+}
+.lineup_scroll_wrapper {
+    height: 100%;
+}
+.lineup_day_stages {
+    display: block;
+    width: 100%;
+    -webkit-transition: opacity 1s ease-out;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.active {
+    opacity: 1;
+    height: 100%;
+}
+
+/* WEATHER
+-------------------------------------------------------------------------- */
+#weather_current {
+    padding: 6px 0 20px;
+    border-bottom: 1px solid #373737;
+}
+#weather_img_current {
+    display: inline-block;
+}
+#weather_temperature_current {
+    position: relative;
+    overflow: visible;
+    bottom: 30px;
+    display: inline-block;
+    font-size: 2.25em;
+    margin-left: 12px;
+}
+#weather_description_current {
+    font-size: 1.375em;
+    text-align: center;
+    overflow: visible;
+}
+#weather_description_current br {
+    display: none;
+}
+#weather_description_current #weather_city {
+    width: 100%;
+    margin-top: 15px;
+    font-size: 0.65em;
+    overflow: visible;
+}
+#weather_list .row {
+    white-space: nowrap;
+}
+#weather_list .column {
+    float: left;
+}
+.weather_icon {
+    width: 64px;
+    margin-top: 5px;
+}
+.weather_temperature {
+    float: right !important;
+    font-size: 1.25em;    
+}
+.weather_temperature span {
+    display: block;
+}
+.weather_temperature .min {
+    margin-top: 5px;
+    color: #aaaaaa;
+    text-align: right;
+}
+.weather_description{
+    width: 35%;
+    height: 100%;
+    word-break: normal;
+}
+
+/* SHOW VIDEOS
+-------------------------------------------------------------------------- */
+#band_videos_page iframe {
+    width: 100%;
+}
+
+.video_name {
+    margin: 15px 5px 6px;
+}
+#map_scroll_wrapper{
+    max-width: 100%;
+    overflow-x: scroll;white-space: nowrap;
+    /*-webkit-overflow-scrolling: touch;*/
+}
+

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+	<meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+	<title>FestivAll</title>
+</head>
+
+<body id="frame">
+
+
+<!-- MAIN HEADER SKELETON -->
+<header id="header" class="header row shadow">
+	<div id="header_link" class="column">
+		<h1 id="header_title" class="heading0"><img id="logo" src="img/logo.png"> FestivAll</h1>
+		<h2 id="header_subtitle" class="heading2"></h2>
+	</div>
+	<div id="menu_button" class="column fixed centered bdr_l">
+		<a href="#" class="icon_menu"></a>
+	</div>
+</header>
+
+
+<!-- ============================== MAIN MENU ===================================== -->
+<div id="menu" class="menu">
+	<ul class="list">
+		<li><a href="#" id="menu_home_link" class="link">Home</a></li>
+		<li><a href="#" id="menu_countries_link" class="link">Países</a></li>
+	</ul>
+	<ul class="list">
+		<li><a href="#" id="menu_search_link" class="link">Pesquisa</a></li>
+		<li><a href="#" id="menu_about_us_link" class="link">Quem somos</a></li>
+		<li><a href="#" id="menu_feedback_link" class="link">Feedback</a></li>
+		<li><a href="#" id="menu_languages_link" class="link">Língua</a></li>
+	</ul>
+</div>
+
+
+<!-- ============================== INSTALLER ===================================== -->
+<div id="installer" class="container">
+	<p class="loading_msg">Loading the festivals...</p>
+	<div id="movingBallG">
+		<div class="movingBallLineG"></div>
+		<div id="movingBallG_1" class="movingBallG"></div>
+	</div>
+</div>
+
+
+<!-- ============================== HOMEPAGE ===================================== -->
+<div id="festivals" class="container">
+	<div id="festivals_page" class="page">
+		<div id="festivals_scroll_wrapper" class="scroll_wrapper">
+
+			<div id="festivals_country_title">
+				<img id="festivals_country_flag" src=""><span></span>
+			</div>
+			<ul id="festivals_buttons" class="festival_list"></ul>
+		</div>
+	</div>
+</div>
+
+
+<!-- =================== FESTIVAL - before - single (after and in between) ======================= -->
+<div id="before_festival" class="container">
+	<div id="before_festival_page" class="page">
+
+		<img class="countdown_bg" src="img/countdown_bg.png">
+		<p id="festival_countdown">
+			<span id="festival_left_word">Faltam</span>
+			<span id="festival_countdown_days"></span>
+			<span id="festival_days_word" class="last-line">dias</span>
+		</p>
+
+		<div class="before_festival_details">
+			<div class="festival_poster">
+				<img id="festival_poster" src="">
+			</div>
+			<ul class="before_festival_list">
+				<li>
+					<span class="icon_arrow"></span>
+					<span id="festival_days"></span>
+				</li>
+				<li>
+					<span class="icon_arrow"></span>
+					<span id="festival_city"></span>
+				</li>
+				<li>
+					<span class="icon_arrow"></span>
+					<span id="festival_price"></span>
+				</li>
+			</ul>
+		</div>
+
+
+		<nav class="nav_bottom">
+			<ul class="row">
+				<li class="column">
+					<a id="before_shows_button" class="item">Bandas</a>
+				</li>
+				<li class="column">
+					<a id="before_lineup_button" class="item">Cartaz</a>
+				</li>
+				<li class="column">
+					<a id="before_info_button" class="item">Info</a>
+				</li>
+				<li class="column">
+					<a id="before_map_button" class="item no_bdr_r">Mapa</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</div>
+
+<!-- ============================== FESTIVAL - during - single ===================================== -->
+
+<div id="during_festival" class="container">
+	<!-- Pages wrap -->
+
+	<div id="during_festival_page" class="page">
+		<div id="during_festival_scroll_wrapper" class="scroll_wrapper">
+			<div id="during_festival_scroller">
+				<ul class="during_festival_list">
+					<li>
+						<span class="icon_arrow"></span>
+						<span id="festival_during_days"></span>
+					</li>
+					<li id="festival_during_city">
+						<span class="icon_arrow"></span>
+						<span id="festival_during_city_span"></span>
+					</li>
+					<li id="festival_during_price">
+						<span class="icon_arrow"></span>
+						<span id="festival_during_price_span"></span>
+					</li>
+				</ul>
+				<div class="festival_during_poster">
+					<img src="" id="festival_during_poster">
+				</div>
+				<div id="festival_during_shows"></div>
+			</div>
+		</div>
+
+		<nav class="nav_bottom">
+			<ul class="row">
+				<li class="column">
+					<a href="#" id="during_shows_button" class="item">Bandas</a>
+				</li>
+				<li class="column">
+					<a href="#" id="during_lineup_button" class="item">Cartaz</a>
+				</li>
+				<li class="column">
+					<a href="#" id="during_info_button" class="item">Info</a>
+				</li>
+				<li class="column">
+					<a href="#" id="during_map_button" class="item no_bdr_r">Mapa</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</div>
+
+
+<!-- ============================== SHOWS (bandas) ===================================== -->
+<div id="shows" class="container">
+	<div id="shows_page" class="page">
+		<div id="shows_scroll_wrapper" class="scroll_wrapper">
+			<ul id="shows_page_list"></ul>
+		</div>
+	</div>
+</div>
+
+<!-- ============================== LINEUP (cartaz) ===================================== -->
+<div id="lineup" class="container">
+
+	<!-- Nav top -->
+	<div id="lineup_days_scroll_wrapper">
+		<ul id="lineup_days_buttons" class="nav_top"></ul>
+	</div>
+
+	<!-- Swipe_bar -->
+	<nav class="swipe_bar row">
+		<ul id="lineup_stages_bar" class="swipe_bar_list"></ul>
+	</nav>
+
+	<div id="lineup_shows" class="list"></div>
+</div>
+
+
+<!-- ============================== INFO ===================================== -->
+<div id="info" class="container swiper-container">
+
+	<!-- Swipe_bar -->
+	<nav class="swipe_bar row">
+		<ul class="swipe_bar_list">
+			<li>
+				<a id="tickets_nav_item" class="current" href="#">Bilhetes</a>
+			</li>
+			<li>
+				<a id="transports_nav_item" href="#">Como Chegar</a>
+			</li>
+			<li>
+				<a id="weather_nav_item" href="#">Tempo</a>
+			</li>
+		</ul>
+	</nav>
+
+	<div id="info_carousel" class="swiper-wrapper">
+
+		<div id="tickets_page" class="page swiper-slide">
+			<div id="tickets_wrapper" class="scroll_wrapper scroll_wrapper_navbar content-slide">
+				<div id="tickets_scroller" class="padded"></div>
+			</div>
+		</div>
+
+		<div id="transports_page" class="page swiper-slide">
+			<div id=transports_wrapper class="scroll_wrapper scroll_wrapper_navbar content-slide">
+				<div id="transports_scroller" class="padded"></div>
+			</div>
+		</div>
+
+		<div id="weather_page" class="page swiper-slide">
+			<div id="weather_wrapper" class="scroll_wrapper scroll_wrapper_navbar content-slide">
+				<div id="weather_scroller"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- ================================ MAP ====================================== -->
+<div id="map" class="container">
+	<!-- page -->
+	<div id="map_page" class="page"></div>
+</div>
+
+
+<!-- ======================================================================================= -->
+<!-- ============================== SHOW (single band) ===================================== -->
+<div id="show" class="container swiper-container">
+
+	<!-- Swipe_bar -->
+	<nav class="swipe_bar row">
+		<ul class="swipe_bar_list static">
+			<li>
+				<a id="show_nav_item" class="current" href="#">Banda</a>
+			</li>
+			<li>
+				<a id="videos_nav_item" href="#">Vídeos</a>
+			</li>
+		</ul>
+	</nav>
+
+	<div id="show_carousel" class="carousel swiper-wrapper">
+		<div id="show_page" class="page swiper-slide">
+			<div id="show_scroll_wrapper" class="scroll_wrapper scroll_wrapper-navbar content-slide">
+
+				<div id="show_photo">
+					<img width="100%" src="img/placeholder.png">
+				</div>
+				<div class="padded">
+					<ul>
+						<li id="show_stage"></li>
+						<li>
+							<span id="show_date"></span> |
+							<span id="show_time"></span>
+						</li>
+					</ul>
+					<br>
+					<p id="show_description" class="content_text"></p>
+				</div>
+			</div>
+		</div>
+		<div id="band_videos_page" class="page swiper-slide">
+			<div id="band_videos_scroller" class="scroll_wrapper scroll_wrapper_navbar content-slide"></div>
+		</div>
+	</div>
+</div>
+
+
+<!-- ================================ SEARCH ====================================== -->
+<div id="search" class="container">
+	<div id="search_page" class="page">
+		<form id="search_input_wrap" class="input_wrap">
+			<input id="search_input" class="input_field" type="text" placeholder="Nome de uma banda..." >
+			<div id="search_button" class="input_button">
+				<span class="icon_search"></span>
+			</div>
+		</form>
+	</div>
+</div>
+
+<!-- ================================ SEARCH-RESULTS ====================================== -->
+<div id="search_results" class="container">
+	<!-- page -->
+	<div id="search_results_page" class="page"></div>
+</div>
+
+
+<!-- ================================ ABOUT US ====================================== -->
+<div id="about_us" class="container">
+	<div id="about_us_page" class="page">
+		<div id="about_us_scroll_wrapper" class="scroll_wrapper">
+			<div id="about_us_page_list" class="padded"></div>
+		</div>
+	</div>
+</div>
+
+<!-- ================================ COUNTRIES ====================================== -->
+<div id="countries" class="container">
+	<div id="countries_page" class="page">
+		<div id="countries_scroll_wrapper" class="scroll_wrapper">
+			<ul id="countries_page_list" class="padded"></ul>
+		</div>
+	</div>
+</div>
+
+<!-- ================================ LANGUAGES ====================================== -->
+<div id="languages" class="container">
+	<div id="languages_page" class="page">
+		<div id="languages_scroll_wrapper" class="scroll_wrapper">
+			<ul id="languages_page_list" class="padded"></ul>
+		</div>
+	</div>
+</div>
+
+<!-- ================================ FEEDBACK ====================================== -->
+<div id="feedback" class="container">
+	<div class="padded">
+		<h2 class="general_heading">Dá-nos a tua opinião!</h2>
+		<p>É bastante importante para melhorarmos a app e não te deixarmos perder no teu festival favorito.</p>
+	</div>
+
+	<form id="feedbackForm">
+		<input id="input_feedback_name" class="input_field" type="text" placeholder="Nome">
+		<input id="input_feedback_email" class="input_field" type="text" placeholder="Email (opcional)" >
+		<textarea id="input_feedback_text" class="textarea" placeholder="Manda o teu bitaite!"></textarea>
+		<div type="submit" id="submitFeedback" class="input_button">
+			<span class="icon_send"></span>
+		</div>
+	</form>
+</div>
+
+<!-- ================================ ADS ====================================== -->
+<div id="ads_banner">
+	<img id="ad_banner_img" alt="" src="">
+</div>
+
+
+<!-- JAVASCRIPT -->
+<!--script type="text/javascript" src="js/lib/jq.mobi.js"></script-->
+<script type="text/javascript" src="js/lib/jquery.min.js"></script>
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/lib/idangerous.swiper-2.1.js"></script>
+
+
+<!-- Data -->
+<script type="text/javascript" src="js/navigation.js"></script>
+<script type="text/javascript" src="js/data.js"></script>
+<script type="text/javascript" src="js/dictionary.js"></script>
+<!--script type='text/javascript' src='js/ads.js'></script-->
+
+<!-- Homepage -->
+<script type="text/javascript" src="js/festivals.js"></script>
+
+<!-- Single Festival -->
+<script type="text/javascript" src="js/festival.js"></script>
+<script type="text/javascript" src="js/shows.js"></script>
+<script type="text/javascript" src="js/lineup.js"></script>
+<script type="text/javascript" src="js/info.js"></script>
+<script type="text/javascript" src="js/map.js"></script>
+<script type='text/javascript' src='js/search.js'></script>
+<script type='text/javascript' src='js/feedback.js'></script>
+<script type='text/javascript' src='js/aboutus.js'></script>
+<script type='text/javascript' src='js/countries.js'></script>
+<script type='text/javascript' src='js/languages.js'></script>
+<script type='text/javascript' src='js/menu.js'></script>
+
+
+<!-- Show - Band -->
+<script type="text/javascript" src="js/show.js"></script>
+<script type="text/javascript" src="js/videos.js"></script>
+
+
+<!-- DEBUGGER: APAGAR ISTO DEPOIS -->
+<!--<script type="text/javascript">
+	window.onerror = function(message, url, lineNumber) {
+		console.log("Error: "+message+" in "+url+" at line "+lineNumber);
+	};
+
+	//USAGE: var style = $("#original").getStyleObject();
+	(function($){
+		$.fn.getStyleObject = function(){
+			var dom = this.get(0);
+			var style;
+			var returns = {};
+			if(window.getComputedStyle){
+				var camelize = function(a,b){
+					return b.toUpperCase();
+				}
+				style = window.getComputedStyle(dom, null);
+				for(var i=0;i<style.length;i++){
+					var prop = style[i];
+					var camel = prop.replace(/\-([a-z])/g, camelize);
+					var val = style.getPropertyValue(prop);
+					returns[camel] = val;
+				}
+				return returns;
+			}
+			if(dom.currentStyle){
+				style = dom.currentStyle;
+				for(var prop in style){
+					returns[prop] = style[prop];
+				}
+				return returns;
+			}
+			return this.css();
+		}
+	})(jQuery);
+</script>-->
+
+</body>
+</html>
+

@@ -1,0 +1,24 @@
+C:\Users\Miguel\Desktop\Development\android\platforms\android\ant-gen\com\festivall_new\R.java \
+ : C:\Users\Miguel\Desktop\Development\android\platforms\android\res\drawable\icon.png \
+C:\Users\Miguel\Desktop\Development\android\platforms\android\res\drawable\splashscreen.png \
+C:\Users\Miguel\Desktop\Development\android\platforms\android\res\drawable-hdpi\icon.png \
+C:\Users\Miguel\Desktop\Development\android\platforms\android\res\drawable-hdpi\splashscreen.png \
+C:\Users\Miguel\Desktop\Development\android\platforms\android\res\drawable-ldpi\icon.png \
+C:\Users\Miguel\Desktop\Development\android\platforms\android\res\drawable-ldpi\splashscreen.png \
+C:\Users\Miguel\Desktop\Development\android\platforms\android\res\drawable-mdpi\icon.png \
+C:\Users\Miguel\Desktop\Development\android\platforms\android\res\drawable-mdpi\splashscreen.png \
+C:\Users\Miguel\Desktop\Development\android\platforms\android\res\drawable-xhdpi\icon.png \
+C:\Users\Miguel\Desktop\Development\android\platforms\android\res\drawable-xhdpi\splashscreen.png \
+C:\Users\Miguel\Desktop\Development\android\platforms\android\res\values\strings.xml \
+C:\Users\Miguel\Desktop\Development\android\platforms\android\res\xml\config.xml \
+C:\Users\Miguel\Desktop\Development\android\platforms\android\ant-build\res\drawable\icon.png \
+C:\Users\Miguel\Desktop\Development\android\platforms\android\ant-build\res\drawable\splashscreen.png \
+C:\Users\Miguel\Desktop\Development\android\platforms\android\ant-build\res\drawable-hdpi\icon.png \
+C:\Users\Miguel\Desktop\Development\android\platforms\android\ant-build\res\drawable-hdpi\splashscreen.png \
+C:\Users\Miguel\Desktop\Development\android\platforms\android\ant-build\res\drawable-ldpi\icon.png \
+C:\Users\Miguel\Desktop\Development\android\platforms\android\ant-build\res\drawable-ldpi\splashscreen.png \
+C:\Users\Miguel\Desktop\Development\android\platforms\android\ant-build\res\drawable-mdpi\icon.png \
+C:\Users\Miguel\Desktop\Development\android\platforms\android\ant-build\res\drawable-mdpi\splashscreen.png \
+C:\Users\Miguel\Desktop\Development\android\platforms\android\ant-build\res\drawable-xhdpi\icon.png \
+C:\Users\Miguel\Desktop\Development\android\platforms\android\ant-build\res\drawable-xhdpi\splashscreen.png \
+C:\Users\Miguel\Desktop\Development\android\platforms\android\ant-build\AndroidManifest.xml \
