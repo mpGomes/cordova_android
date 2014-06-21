@@ -24,7 +24,7 @@ function changeContainers(page, title, subtitle){
     switch(page){
         case "#festivals":
             header_title_selector.removeClass('heading1').addClass('heading0');
-            header_title_selector.html('<img id="logo" alt="FestivAll" src="img/logo.png"> FestivAll');
+            header_title_selector.html('<img id="logo" alt="FestivAll" src="img/logo_title.png">');
             header_subtitle.empty();
             $('#header_link').unbind();
             $('#festivals_line_break').text(dictionary[localStorage['language']]['finished']);

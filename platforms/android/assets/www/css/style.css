@@ -329,8 +329,9 @@ a {
 #logo {
     position: absolute;
     top: 50%;
-    left: 5px;
+    left: 25px;
     margin-top: -25px;
+    height: 85%;
 }
 .icon_menu {
     display: inline-block;

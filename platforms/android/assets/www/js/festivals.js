@@ -175,7 +175,7 @@ function appendCountryToFestivals(country_id){
 // Callback for the festivals query
 function queryFestivalsCountrySuccess(tx, results) {
     var country = results.rows.item(0);
-    console.log("FESTIVALS_COUNTRY FLAG: " + country.flag);
+    $('.festival_list .item').height($('.festival_list .item').width());
     $('#festivals_country_title span').text(country.name);
     $('#festivals_country_flag').attr('src', country.flag);
 }
