@@ -132,22 +132,21 @@ function populateDB(tx) {
 }
 
 function insertData(data){
-    console .log("INSERTING DATA");
     $.each(data, function(k,v){
         switch(k){
             case 'festivals':
                 db.transaction(function(tx){
                     $.each(v, function(i, l){
                         tx.executeSql("INSERT OR REPLACE INTO FESTIVALS (id, name, country_id, latitude, longitude, city, logo, map, updated_at) VALUES (" +
-                        l.id + ", '" +
-                        l.name.replace(/'/g, "''") + "', " +
-                        l.country_id + ", '" +
-                        l.latitude + "', '" +
-                        l.longitude +"', '" +
-                        l.city.replace(/'/g, "''") + "', '" +
-                        l.logo.replace(/'/g, "''") +"', '" +
-                        l.map.replace(/'/g, "''") + "', '" +
-                        l.updated_at +"')");
+                            l.id + ", '" +
+                            l.name.replace(/'/g, "''") + "', " +
+                            l.country_id + ", '" +
+                            l.latitude + "', '" +
+                            l.longitude +"', '" +
+                            l.city.replace(/'/g, "''") + "', '" +
+                            l.logo.replace(/'/g, "''") +"', '" +
+                            l.map.replace(/'/g, "''") + "', '" +
+                            l.updated_at +"')");
                     });
                 }, errorCB, successCB);
                 break;
@@ -155,10 +154,10 @@ function insertData(data){
                 db.transaction(function(tx){
                     $.each(v, function(i, l){
                         tx.executeSql("INSERT OR REPLACE INTO STAGES (id, name, festival_id, updated_at) VALUES (" +
-                        l.id + ", '" +
-                        l.name.replace(/'/g, "''") + "', " +
-                        l.festival_id + ", '" +
-                        l.updated_at + "')");
+                            l.id + ", '" +
+                            l.name.replace(/'/g, "''") + "', " +
+                            l.festival_id + ", '" +
+                            l.updated_at + "')");
                     });
                 }, errorCB,  successCB);
                 break;
@@ -176,19 +175,19 @@ function insertData(data){
                 }, errorCB, successCB);
                 break;
             case 'countries':
-                $.each(v, function(i, l){
-                    db.transaction(function(tx){
+                db.transaction(function(tx){
+                    $.each(v, function(i, l){
                         tx.executeSql("INSERT OR REPLACE INTO COUNTRIES (id, name, flag, updated_at) VALUES (" +
                             l.id + ", '" +
                             l.name.replace(/'/g, "''") + "', '" +
                             l.flag.replace(/'/g, "''") + "', '" +
                             l.updated_at + "')");
-                    }, errorCB, successCB);
-                });
+                    });
+                }, errorCB, successCB);
                 break;
             case 'shows':
-                $.each(v, function(i, l){
-                    db.transaction(function(tx){
+                db.transaction(function(tx){
+                    $.each(v, function(i, l){
                         tx.executeSql("INSERT OR REPLACE INTO SHOWS (id, name, festival_id, stage_id, day_id, photo, time, no_date, no_hours, no_stage, updated_at) VALUES (" +
                             l.id + ", '" +
                             l.name.replace(/'/g, "''") + "', " +
@@ -201,45 +200,45 @@ function insertData(data){
                             l.no_hours + "', '" +
                             l.no_stage + "', '" +
                             l.updated_at + "')");
-                    }, errorCB, successCB);
-                });
+                    });
+                }, errorCB, successCB);
                 break;
             case 'videos':
-                $.each(v, function(i, l){
-                    db.transaction(function(tx){
+                db.transaction(function(tx){
+                    $.each(v, function(i, l){
                         tx.executeSql("INSERT OR REPLACE INTO VIDEOS (id, name, show_id, url, updated_at) VALUES (" +
                             l.id + ", '" +
                             l.name.replace(/'/g, "''") + "', " +
                             l.show_id + ", '" +
                             l.url.replace(/'/g, "''") + "', '" +
                             l.updated_at + "')");
-                    }, errorCB, successCB);
-                });
+                    });
+                }, errorCB, successCB);
                 break;
             case 'about_us':
-                $.each(v, function(i, l){
-                    db.transaction(function(tx){
+                db.transaction(function(tx){
+                    $.each(v, function(i, l){
                         tx.executeSql("INSERT OR REPLACE INTO ABOUT_US (id, title, text, updated_at) VALUES (" +
                             l.id + ", '" +
                             l.title.replace(/'/g, "''") + "', '" +
                             l.text.replace(/'/g, "''") + "', '" +
                             l.updated_at + "')");
-                    }, errorCB, successCB);
-                });
+                    });
+                }, errorCB, successCB);
                 break;
             case 'languages':
-                $.each(v, function(i, l){
-                    db.transaction(function(tx){
+                db.transaction(function(tx){
+                    $.each(v, function(i, l){
                         tx.executeSql("INSERT OR REPLACE INTO LANGUAGES (id, name, updated_at) VALUES (" +
                             l.id + ", '" +
                             l.name.replace(/'/g, "''") + "', '" +
                             l.updated_at + "')");
-                    }, errorCB, successCB);
-                });
+                    });
+                }, errorCB, successCB);
                 break;
             case 'translations':
-                $.each(v, function(i, l){
-                    db.transaction(function(tx){
+                db.transaction(function(tx){
+                    $.each(v, function(i, l){
                         tx.executeSql("INSERT OR REPLACE INTO TRANSLATIONS (id, language_id, festival_id, show_id, method_name, text, updated_at) VALUES (" +
                             l.id + ", " +
                             l.language_id + ", " +
@@ -248,15 +247,15 @@ function insertData(data){
                             l.method_name + "', '" +
                             l.text.replace(/'/g, "''") + "', '" +
                             l.updated_at + "')");
-                    }, errorCB, successCB);
-                });
+                    });
+                }, errorCB, successCB);
                 break;
             case 'deleted_items':
-                $.each(v, function(i, l){
-                    db.transaction(function(tx){
+                db.transaction(function(tx){
+                    $.each(v, function(i, l){
                         tx.executeSql("DELETE FROM " + l.table.toString().toUpperCase() +  " WHERE id=" + l.element);
-                    }, errorCB, successCB);
-                });
+                    });
+                }, errorCB, successCB);
                 updateLastSync();
                 break;
         }
