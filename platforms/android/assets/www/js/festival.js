@@ -117,6 +117,7 @@ function createBeforeFestival(festival, days, diff, status){
         $('#festival_price').text(dictionary[localStorage['language']]['price'] + ": " + festival.text);
 
 
+    $('.festival_poster').height($('.festival_poster').width());
     $('#festival_poster').attr("src", festival.logo);
 
     if(status == "before"){
@@ -234,7 +235,7 @@ function createDuringFestival(festival, days){
                     $('#festival_during_price_span').text(festival.text);
                 }
 
-
+                $('.festival_during_poster').height($('.festival_during_poster').width());
                 $('#festival_during_poster').attr("src", festival.logo);
 
                 $('#festival_during_shows').empty();
