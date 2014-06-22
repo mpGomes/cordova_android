@@ -37,9 +37,12 @@ function queryShowSuccess(tx, results) {
         createFestivalContainer(show.f_id);
     });
 
-    var show_day = show.day_date.slice(8,10);
-    var numeric_month = show.day_date.slice(5,7);
-    var show_month = changeNumberToMonth(numeric_month);
+    if(show.no_date !== "true"){
+        var show_day = show.day_date.slice(8,10);
+        var numeric_month = show.day_date.slice(5,7);
+        var show_month = changeNumberToMonth(numeric_month);
+    }
+
 
     $('#header_subtitle').text(show.festival_name);
     $('#show_nav_item').text(dictionary[localStorage['language']]['band']);

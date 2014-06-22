@@ -4,7 +4,7 @@ function createShowsContainer(festival_id){
 
     db.transaction(function (tx){
         tx.executeSql('SELECT SHOWS.*, STAGES.NAME AS stage_name, DAYS.DATE AS day_date ' +
-            'FROM SHOWS LEFT JOIN STAGES ON STAGES.ID = SHOWS.STAGE_ID LEFT JOIN DAYS ON DAYS.ID = SHOWS.DAY_ID ' +
+            'FROM SHOWS LEFT JOIN DAYS ON SHOWS.DAY_ID = DAYS.ID LEFT JOIN STAGES ON STAGES.ID = SHOWS.STAGE_ID ' +
             'WHERE SHOWS.FESTIVAL_ID='+festival_id +' ORDER BY SHOWS.NAME', [], queryShowsSuccess, errorQueryCB);
     }, errorCB);
 }
@@ -13,7 +13,6 @@ function createShowsContainer(festival_id){
 function queryShowsSuccess(tx, results) {
 
     var shows = results.rows;
-    var shows_length = shows.length;
     var show, show_id, show_time;
     var show_name_letter, show_name_previous_letter, numeric_month, show_day, month;
     $('#shows_page_list').empty();
@@ -23,16 +22,18 @@ function queryShowsSuccess(tx, results) {
         createFestivalContainer(current_festival_id);
     });
 
-    if (shows_length > 0)
-        for (var i=0; i<shows_length; i++){
+    if (shows.length > 0)
+        for (var i=0; i<shows.length; i++){
             show = shows.item(i);
             show_id = shows.item(i).id;
             show_time = show.time.slice(11,16);
-            numeric_month = show.day_date.slice(5,7);
             show_name_letter = show.name.slice(0,1);
 
-            month = changeNumberToMonthAbrev(numeric_month);
-            show_day = show.day_date.slice(8,10);
+            if(show.no_date !== "true"){
+                numeric_month = show.day_date.slice(5,7);
+                month = changeNumberToMonthAbrev(numeric_month);
+                show_day = show.day_date.slice(8,10);
+            }
 
             if(show_name_letter != show_name_previous_letter){
                 $('#shows_page_list').append('<li id="show_letter_' + show_name_letter.charCodeAt(0) +'"></li>');
@@ -56,9 +57,10 @@ function queryShowsSuccess(tx, results) {
 
             if(show.no_hours === "true")
                 $('#show_'+show_id + ' .show_time').text("--:--");
+            if(show.no_stage === "true")
+                $('#show_'+show_id + ' .stage_name').empty();
             if(show.no_date === "true")
                 $('#show_'+show_id + ' .show_date').text(dictionary[localStorage['language']]['tba']);
-
 
             (function (show_name){
                 $('#show_'+show_id).unbind().bind('click', function(){
