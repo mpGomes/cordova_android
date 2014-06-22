@@ -24,9 +24,9 @@ function createInfoContainer(festival_id){
 
     db.transaction(function (tx) {
         tx.executeSql('SELECT FESTIVALS.*, TRANSLATIONS.* ' +
-            'FROM FESTIVALS LEFT JOIN TRANSLATIONS ON FESTIVALS.ID = TRANSLATIONS.FESTIVAL_ID ' +
-            'AND TRANSLATIONS.LANGUAGE_ID='+localStorage['language_id'] + ' ' +
-            'WHERE FESTIVALS.ID='+festival_id,
+                'FROM FESTIVALS LEFT JOIN TRANSLATIONS ON FESTIVALS.ID = TRANSLATIONS.FESTIVAL_ID ' +
+                'AND TRANSLATIONS.LANGUAGE_ID='+localStorage['language_id'] + ' ' +
+                'WHERE FESTIVALS.ID='+festival_id,
             [], queryInfoSuccess, errorCB);
     }, errorCB);
 
@@ -43,6 +43,9 @@ function queryInfoSuccess(tx, results) {
     var info_texts = '';
     var tickets_scroller_selector = $('#tickets_scroller');
     var transports_scroller_selector = $('#transports_scroller');
+
+    tickets_scroller_selector.empty();
+    transports_scroller_selector.empty();
 
     for (var i=0; i<festivals.length; i++){
         if(festivals.item(i).text)
@@ -120,22 +123,22 @@ function queryInfoSuccess(tx, results) {
                             $.each(weather_value, function(day_key, day_value){
                                 day_index = day_key + 1;
                                 $('#weather_list').append('' +
-                                        '<li id="weather_day' + day_index +'" class="row">' +
-                                        '<div class="column centered">' +
-                                        '<strong id="weather_weekday' + day_index +'" class="weather_weekday"></strong><br>' +
-                                        '<span id="weather_date' + day_index +'" class="weather_date"></span>' +
-                                        '</div>' +
-                                        '<div class="column no_padding">' +
-                                        '<img src="" id="weather_img' + day_index +'" class="weather_icon">' +
-                                        '</div>' +
-                                        '<div class="column weather_description">' +
-                                        '<div id="weather_description' + day_index +'"></div>' +
-                                        '</div>' +
-                                        '<div class="column weather_temperature">' +
-                                        '<span id="weather_max_temperature' + day_index +'" class="max"></span>' +
-                                        '<span id="weather_min_temperature' + day_index +'" class="min"></span>' +
-                                        '</div>' +
-                                        '</li>');
+                                    '<li id="weather_day' + day_index +'" class="row">' +
+                                    '<div class="column centered">' +
+                                    '<strong id="weather_weekday' + day_index +'" class="weather_weekday"></strong><br>' +
+                                    '<span id="weather_date' + day_index +'" class="weather_date"></span>' +
+                                    '</div>' +
+                                    '<div class="column no_padding">' +
+                                    '<img src="" id="weather_img' + day_index +'" class="weather_icon">' +
+                                    '</div>' +
+                                    '<div class="column weather_description">' +
+                                    '<div id="weather_description' + day_index +'"></div>' +
+                                    '</div>' +
+                                    '<div class="column weather_temperature">' +
+                                    '<span id="weather_max_temperature' + day_index +'" class="max"></span>' +
+                                    '<span id="weather_min_temperature' + day_index +'" class="min"></span>' +
+                                    '</div>' +
+                                    '</li>');
 
                                 $.each(day_value, function(temperature_key, temperature_value){
                                     if(temperature_key=="date"){
