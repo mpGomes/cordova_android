@@ -27,6 +27,6 @@
     <content src="index.html" />
     <access origin="*" />
     <preference name="SplashScreen" value="splashscreen" />
-    <preference name="SplashScreenDelay" value="10000" />
+    <preference name="SplashScreenDelay" value="2000" />
     <preference name="loadUrlTimeoutValue" value="70000" />
 </widget>
