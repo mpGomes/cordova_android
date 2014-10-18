@@ -241,7 +241,7 @@ function createDuringFestival(festival, days){
                 $('#festival_during_shows').empty();
 
                 if(stages_length > 0){
-                    for(var i = 0; i<stages_length; i++){console.log(festival);
+                    for(var i = 0; i<stages_length; i++){
                         stage = stages.item(i);
                         (function(stage){ //manha gigante, pouco legivel
                             db.transaction(  function(tx){

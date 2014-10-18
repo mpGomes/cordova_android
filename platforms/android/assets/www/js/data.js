@@ -15,17 +15,15 @@ var db;
 function onDeviceReady(){
     document.addEventListener("backbutton", backButton, false);
     setHeightAndWidth();
-    if(localStorage["firstRun"] == undefined || localStorage["firstRun"] == "true"){
-        // Loading festivals
-        $('#installer').addClass('visible');
-    }
     db = window.openDatabase("FestivAllDB", "1.0", "FestivAll Database", 5000000);
 
     //menu button
     initMenu();
-    if( localStorage['firstRun'] == undefined)
-        console.log("firstRun IS undefined");
-    else console.log("firstRun IS " + localStorage['firstRun']);
+
+    if(localStorage["firstRun"] == undefined || localStorage["firstRun"] == "true"){
+        // Loading festivals
+        $('#installer').addClass('visible');
+    }
     //Conexao à base de dados do servidor
     $.ajax({
         url: "http://festivall.eu",
@@ -42,11 +40,13 @@ function onDeviceReady(){
             }
         },
         error: function(model, response) {
-            if(localStorage["firstRun"] == undefined)
+            if(localStorage["firstRun"] == undefined){
                 if(localStorage['language'] != undefined)
-                    navigator.notification.alert(dictionary[localStorage['language']]['you_need_internet_connection'], null, dictionary[localStorage['language']]['info'], 'Ok');
+                    alert(dictionary[localStorage['language']]['you_need_internet_connection'], null, dictionary[localStorage['language']]['info'], 'Ok');
                 else alert("You need an Internet Connection to run this app for the first time.");
-            createFestivalsContainer();
+                navigator.app.exitApp();
+            }
+            createFestivalsContainer(); //syncinc flow
         }
     });
 }
@@ -293,7 +293,6 @@ function updateLastSync(){
     //Changes firstRun variable to true
     if(localStorage["firstRun"] == 'true'){
         console.log("COMPLETING FIRST RUN");
-        localStorage.setItem("firstRun", "false");
         //English as default language
         setLanguageVariable('1');
         //Portugal as default country

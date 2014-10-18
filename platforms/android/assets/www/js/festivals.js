@@ -19,9 +19,17 @@ function createFestivalsContainer(){
 function queryFestivalsSuccess(tx, results) {
     //Create festivals container after insertions
     console.log("CREATING FESTIVALS CONTAINER")
+    console.log("first run: " + localStorage["firstRun"]);
     if(localStorage["firstRun"] == "true"){
         localStorage.setItem("firstRun", "false");
         $('#installer').removeClass('visible');
+        //create dir for images
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fileSystem) {
+            fileSystem.root.getDirectory("FestivAll", {create: true, exclusive: false},
+                function(){console.log('App Dir Created');}, function(){console.log('Error Creating App Dir')});
+            //.nomedia file prevents pictures from showing on the gallery
+            fileSystem.root.getFile('FestivAll/.nomedia', {create: true, exclusive: false}, function (fileEntry)  {});
+        });
     }
     $('#festivals_buttons').empty();
 
@@ -36,7 +44,6 @@ function queryFestivalsSuccess(tx, results) {
 
     appendCountryToFestivals(festivals.item(0).country_id);
     changeContainers('#festivals', '', '');
-
 }
 
 function checkIfAfterFestival(festival_id, ended_festivals, i, festivals_length){
@@ -76,7 +83,7 @@ function addFestivalToList(festival){
     });
 
     //Check if the logo file exists
-    var filename = festival.name + '.jpg';
+    var filename = 'FestivAll/' + festival.name + '.jpg';
     var hasLogo = localStorage[festival.name];
     var url = festival.logo;
     //Ajax call to download logo if it is not stored
@@ -138,7 +145,7 @@ function makeid(){
 
 function cacheMap(festival){
     //Check if the MAP file exists
-    var filename = festival.name + '_map.jpg';
+    var filename = 'FestivAll/' + festival.name + '_map.jpg';
     var hasMap = localStorage[filename];
     var url = festival.map;
     //Ajax call to download logo if it is not stored
